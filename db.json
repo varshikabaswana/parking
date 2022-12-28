@@ -1,0 +1,17 @@
+{
+    "users":[
+        {
+            "vehicle" : "car",
+            "name":"john",
+            "employeeId":"574"
+            
+        },
+        {
+            "vehicle" : "bike",
+            "name":"sam",
+            "employeeId":"888"
+            
+        }
+
+    ]
+}
