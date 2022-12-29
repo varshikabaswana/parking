@@ -34,7 +34,7 @@ import ViewDetails from "./ViewDetails";
         <div style={{textAlign : 'center'}}>
         <Button type='primary' style={{backgroundColor:'green'}} onClick={showMarkingModal}>Marking</Button>&nbsp;
         <Button type='primary' style={{backgroundColor:'green'}} onClick={showViewDetailsModal}>View Details</Button>
-        <Modal  open={isModalOpen}  onCancel={handleCancel} onOK={handleOk} bookingSlot={bookingSlot} viewdetails={viewdetails}>
+        <Modal  open={isModalOpen}  footer={null} onCancel={handleCancel} onOK={handleOk} bookingSlot={bookingSlot} viewdetails={viewdetails}>
           <div>
             {bookingSlot && <Marking close={setIsModalOpen} /> }
             {viewdetails && <ViewDetails />}

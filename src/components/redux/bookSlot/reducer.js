@@ -23,17 +23,22 @@ const bookingReducer = (state = initialState,action) => {
         case 'BOOK_SLOT' : 
             
             if(state.availableSlots[action.payload.vehicle] !== 0) {
-                console.log("reached");
-                return {
-                ...state,
-                availableSlots : state.availableSlots[action.payload.vehicle] -1,
-                userDetails : state.userDetails.push(...state.userDetails,action.payload)
+               
+                const vehicleType = action.payload.vehicle 
+                return{
+                    ...state,
+                    availableSlots : {...state.availableSlots,[vehicleType] :state.availableSlots[vehicleType] -1},
+                    userDetails : {...state.userDetails,userDetails :action.payload}
+                    
                 }
             }
-                //userDetails : state.userDetails.push(...state.userDetails,action.payload)
-                //userDetails : state.userDetails.concat(action.payload)
-            return state
+            
+            break;
 
+            case 'RESET_SLOTS':
+                return{
+                    availableSlots : {availableSlots:state.totalNumOfSlots}
+                } 
         default : return state
     }
     

@@ -5,4 +5,10 @@ const bookSlot = (values) => {
     }
 }
 
-export default bookSlot
+const resetSlots =() => {
+    return{
+        type:'RESET_SLOTS'
+      
+    }
+}
+export {bookSlot,resetSlots};

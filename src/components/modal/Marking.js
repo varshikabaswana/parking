@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react'
 import { Button,Form,Input,Radio } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
 import { useDispatch } from 'react-redux';
-import bookSlot from '../redux/bookSlot/actions';
+import {bookSlot} from '../redux/bookSlot/actions';
+import axios from 'axios';
 
 
 function Marking (props) {
@@ -10,37 +11,20 @@ function Marking (props) {
     const [name, setName] = useState("");
     const [employeeId,setEmployeeId] = useState("");
     const [vehicle,setVehicle] = useState("");
-
-    const dispatch = useDispatch();
-
     const [form] = Form.useForm();
     const url ='http://localhost:5000/users';
+    const dispatch = useDispatch();
 
-    const handleSubmit =  (values) => {
-       
+    const handleSubmit =  async (values) => {
         props.close(false);
-        console.log(values);
-
         dispatch(bookSlot(values));
-
-
-        // const fetchUsers= async (values) => { fetch(url,{
-        //     method:'POST',
-        //     headers:{
-        //         'Content-Type':'application/json'
-        //     },
-        //     body:JSON.stringify(values)
-        // }).then(res => res.json())
-        // .catch(error => console.log(error.stack));
-        // };
-        // (async () => await fetchUsers())();
-
-        form.resetFields();
-
-        // dispatch(({
-        //     type:'BOOK_SLOT',
-        //     payload:values
-        // }))      
+        const res = await axios.post(url,values,{
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        });
+    
+        form.resetFields();   
                        
     }
     
