@@ -1,5 +1,5 @@
 {
-  "users": [
+  "car": [
     {
       "vehicle": "car",
       "username": "john",
@@ -7,112 +7,18 @@
       "id": 1
     },
     {
+      "vehicle": "car",
+      "username": "dhanu",
+      "employeeId": "754",
+      "id": 2
+    }
+  ],
+  "bike": [
+    {
       "vehicle": "bike",
       "username": "sam",
       "employeeId": "888",
-      "id": 2
-    },
-    {
-      "vehicle": "bike",
-      "username": "ram",
-      "employeeId": "909",
-      "id": 3
-    },
-    {
-      "vehicle": "car",
-      "username": "Apple",
-      "employeeId": "555",
-      "id": 4
-    },
-    {
-      "vehicle": "bike",
-      "username": "yash",
-      "employeeId": "999",
-      "id": 5
-    },
-    {
-      "vehicle": "car",
-      "username": "sai",
-      "employeeId": "456",
-      "id": 6
-    },
-    {
-      "vehicle": "car",
-      "username": "saketh",
-      "employeeId": "611",
-      "id": 7
-    },
-    {
-      "vehicle": "bike",
-      "username": "tom",
-      "employeeId": "111",
-      "id": 8
-    },
-    {
-      "vehicle": "car",
-      "username": "sony",
-      "employeeId": "674",
-      "id": 9
-    },
-    {
-      "vehicle": "bike",
-      "username": "rohith",
-      "employeeId": "261",
-      "id": 11
-    },
-    {
-      "vehicle": "bike",
-      "username": "mani",
-      "employeeId": "899",
-      "id": 12
-    },
-    {
-      "vehicle": "bike",
-      "username": "pant",
-      "employeeId": "674",
-      "id": 13
-    },
-    {
-      "vehicle": "bike",
-      "username": "virat",
-      "employeeId": "900",
-      "id": 14
-    },
-    {
-      "vehicle": "car",
-      "username": "jay",
-      "employeeId": "611",
-      "id": 15
-    },
-    {
-      "vehicle": "car",
-      "username": "wam",
-      "employeeId": "753",
-      "id": 16
-    },
-    {
-      "vehicle": "car",
-      "username": "john",
-      "employeeId": "145",
-      "id": 17
-    },
-    {
-      "vehicle": "car",
-      "username": "tomi",
-      "employeeId": "222",
-      "id": 18
-    },
-    {
-      "vehicle": "car",
-      "username": "tgc",
-      "employeeId": "6767",
-      "id": 19
-    },
-    {
-      "vehicle": "bike",
-      "username": "uhuh",
-      "employeeId": "789",
-      "id": 20
+      "id": 1
     }
   ]
 }

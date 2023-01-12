@@ -11,4 +11,6 @@ const resetSlots =() => {
       
     }
 }
+
+
 export {bookSlot,resetSlots};

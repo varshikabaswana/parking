@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import { Button,Form,Input,Radio } from 'antd';
 import FormItem from 'antd/es/form/FormItem';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import {bookSlot} from '../redux/bookSlot/actions';
 import axios from 'axios';
 
@@ -12,17 +13,23 @@ function Marking (props) {
     const [employeeId,setEmployeeId] = useState("");
     const [vehicle,setVehicle] = useState("");
     const [form] = Form.useForm();
-    const url ='http://localhost:5000/users';
+    const carUrl ='http://localhost:5000/car';
+    const bikeUrl = 'http://localhost:5000/bike';
+    const carAvailableSlots = props.car.availableSlots;
+    const bikeAvailableSlots = props.bike.availableSlots;
     const dispatch = useDispatch();
 
     const handleSubmit =  async (values) => {
         props.close(false);
         dispatch(bookSlot(values));
-        const res = await axios.post(url,values,{
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        });
+        //if ((vehicle == 'car' && carAvailableSlots !== 0) || (vehicle == 'bike' && bikeAvailableSlots !== 0) ) {
+            const res = await axios.post(carUrl,values,{
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            });
+       // }
+        
     
         form.resetFields();   
                        
@@ -78,5 +85,13 @@ function Marking (props) {
   )
 }
 
-export default Marking
+const mapStateToProps =(state) => {
+    return{
+  
+      car : state.car,
+      bike : state.bike
+    }
+  }
+
+export default connect(mapStateToProps)(Marking)
 
