@@ -19,6 +19,12 @@
       "username": "sam",
       "employeeId": "888",
       "id": 1
+    },
+    {
+      "vehicle": "bike",
+      "username": "neha",
+      "employeeId": "555",
+      "id": 2
     }
   ]
 }

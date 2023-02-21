@@ -22,13 +22,17 @@ function Marking (props) {
     const handleSubmit =  async (values) => {
         props.close(false);
         dispatch(bookSlot(values));
-        //if ((vehicle == 'car' && carAvailableSlots !== 0) || (vehicle == 'bike' && bikeAvailableSlots !== 0) ) {
-            const res = await axios.post(carUrl,values,{
+        if ((vehicle == 'car' && carAvailableSlots ) || (vehicle == 'bike' && bikeAvailableSlots ) ) {
+            let url = carUrl;
+            if(vehicle == 'bike' && bikeAvailableSlots) {
+                url = bikeUrl;
+            }
+            const res = await axios.post(url,values,{
                 headers:{
                     'Content-Type': 'application/json'
                 }
             });
-       // }
+        }
         
     
         form.resetFields();   
@@ -68,7 +72,7 @@ function Marking (props) {
                     rules={[
                         {
                         required: true,
-                        message: 'Please input your employee id!',
+                        message: 'Please input your Employee id! Branch1',
                         },
                     ]}
                     onChange={(e) => setEmployeeId(e.target.value)}
