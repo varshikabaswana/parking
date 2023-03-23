@@ -7,29 +7,25 @@
 //     availableSlots:{
 //         car:20,
 //         bike:20
-
 //     },
 //     userDetails:[]
    
-// }
 
 const initialState = {
+
     car :{
         totalNumOfSlots : 20,
-        availableSlots : 20,
-        numOfSlotsBooked : 0
+        availableSlots : 20 
     },
     bike : {
-        totalNumOfSlots : 20,
-        availableSlots : 20,
-        numOfSlotsBooked : 0
-    }
-
+        totalNumOfSlots : 20, 
+        availableSlots : 20
+    },
+    userDetails:[]
 }
 
 const bookingReducer = (state = initialState,action) => {
 
-    console.log(action);
     console.log('car',state.car.availableSlots);
     console.log('bike',state.bike.availableSlots);
     
@@ -37,31 +33,33 @@ const bookingReducer = (state = initialState,action) => {
         case 'BOOK_SLOT' : 
             const vehicleType = action.payload.vehicle
             const vehicleData = state[vehicleType]; 
+            
             if(state,[vehicleType].availableSlots !== 0) {
                
                 return{
                     ...state,
-                    [vehicleType]: {... vehicleData, numOfSlotsBooked:  vehicleData.numOfSlotsBooked + 1},
+                    //[vehicleType]: {... vehicleData, numOfSlotsBooked:  vehicleData.numOfSlotsBooked + 1},
+
                     [vehicleType]: {... vehicleData, availableSlots:  vehicleData.availableSlots - 1},
+
                     //availableSlots : {...state.availableSlots,[vehicleType] :state.availableSlots[vehicleType] -1},
-                    userDetails : {...state.userDetails,userDetails :action.payload}
-                    
+                      
                 }
-            }
-            
+            } 
             break;
 
-        case 'RESET_SLOTS':
+        case 'LOAD_DATA' :
+            console.log('load data :',action.payload);
+                const carslen = action.payload.carsBooked.length;
+                const bikeslen = action.payload.bikesBooked.length;
                 return{
-
-                    car: state.car.totalNumOfSlots,
-                    bike : state.bike.totalNumOfSlots
-                    // availableSlots,[car] : state.totalNumOfSlots[car],
-                    // availableSlots,[bike] : 20,
-                    
-                } 
-            break;
-
+                    ...state,
+                    car : {...state.car, availableSlots : state.car.totalNumOfSlots - carslen},
+                    bike : { ...state.bike, availableSlots : state.bike.totalNumOfSlots - bikeslen},
+                    userDetails : {...state.userDetails,userDetails :action.payload}
+                }
+             break;
+                
         default : return state
     }
     

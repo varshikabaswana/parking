@@ -1,15 +1,17 @@
-
 import CardContainer from "./components/container/CardContainer";
 import Header from "./components/header/Header";
 import Modal from "./components/modal/Modal";
+import React, { useEffect } from 'react';
 
-
-function App() {
+const App = () => {
+  
   return (
     
     <div className="App">
+     
       <Header/>
       <CardContainer/>
+      <>&nbsp;</>
       <Modal/>
     </div>
     

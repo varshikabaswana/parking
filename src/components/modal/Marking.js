@@ -22,18 +22,22 @@ function Marking (props) {
     const handleSubmit =  async (values) => {
         props.close(false);
         dispatch(bookSlot(values));
-        if ((vehicle == 'car' && carAvailableSlots ) || (vehicle == 'bike' && bikeAvailableSlots ) ) {
-            let url = carUrl;
-            if(vehicle == 'bike' && bikeAvailableSlots) {
-                url = bikeUrl;
-            }
-            const res = await axios.post(url,values,{
-                headers:{
-                    'Content-Type': 'application/json'
+        try {
+            if ((vehicle === 'car' && carAvailableSlots ) || (vehicle === 'bike' && bikeAvailableSlots ) ) 
+            {
+                let url = carUrl;
+                if(vehicle === 'bike') {
+                    url = bikeUrl;
                 }
-            });
+                const res = await axios.post(url,values,{
+                    headers:{
+                        'Content-Type': 'application/json'
+                    }
+                });
+            }
+        } catch (error) {
+            console.log('Slots not available');
         }
-        
     
         form.resetFields();   
                        

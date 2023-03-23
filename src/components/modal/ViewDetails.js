@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from "react";
+import { useSelector,useDispatch } from 'react-redux';
 import { Radio, Col, Row } from "antd";
 import axios from "axios";
 
@@ -6,7 +7,7 @@ function ViewDetails () {
   
   const [users,setUsers] = useState([]);
   const [vehicle, setVehicle] = useState("car");
-
+  //const users = useSelector((state) => state.userDetails)
   let url='http://localhost:5000/car';
   
     const fetchUsers = async () => {

@@ -2,15 +2,9 @@
   "car": [
     {
       "vehicle": "car",
-      "username": "john",
-      "employeeId": "574",
+      "username": "hari",
+      "employeeId": "555",
       "id": 1
-    },
-    {
-      "vehicle": "car",
-      "username": "dhanu",
-      "employeeId": "754",
-      "id": 2
     }
   ],
   "bike": [
@@ -22,8 +16,8 @@
     },
     {
       "vehicle": "bike",
-      "username": "neha",
-      "employeeId": "555",
+      "username": "Apple",
+      "employeeId": "123",
       "id": 2
     }
   ]

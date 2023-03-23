@@ -1,7 +1,9 @@
-import { createStore ,compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import bookingReducer from './bookSlot/reducer';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(bookingReducer,composeEnhancers());
+const store = createStore(bookingReducer, applyMiddleware(thunk));
 
-export default store
+
+export default store;
+

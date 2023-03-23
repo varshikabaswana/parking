@@ -30,10 +30,16 @@ import ViewDetails from "./ViewDetails";
         setIsModalOpen(false);
       }; 
 
+      const style = {
+        backgroundColor:'#6baae1',
+        fontSize :'15px',
+        border:'1px solid black'
+      }
     return(
         <div style={{textAlign : 'center'}}>
-        <Button type='primary' style={{backgroundColor:'green'}} onClick={showMarkingModal}>Marking</Button>&nbsp;
-        <Button type='primary' style={{backgroundColor:'green'}} onClick={showViewDetailsModal}>View Details</Button>&nbsp;
+        <Button type='primary' style={style} onClick={showMarkingModal}>Marking</Button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button type='primary' style={style} onClick={showViewDetailsModal}>View Details</Button>&nbsp;
         
         <Modal  open={isModalOpen}  footer={null} onCancel={handleCancel} onOK={handleOk} bookingSlot={bookingSlot} viewdetails={viewdetails}>
           <div>
